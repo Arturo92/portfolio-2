@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html">
+  <title>Arthur Ernesto Hernandez | Portfolio</title>
+  <meta name="author" content="Arthur Ernesto Hernandez">
+  <link rel="stylesheet" type="text/css" media="all" href="css/styles.css">
+  <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+</head>
+
+<body>
+  <div id="wrapper">
+    <img id="menu" src="img/menu.png">
+    <h1 id="name" >Arturo Ernesto Hernandez</h1>
+    <h2 class="desc">Web Developer / Web Designer</h2>
+	<div id="scrolltext">
+	scroll down
+	</div>
+    <script>
+	    $(document).ready(function(){
+		    $('body').show(function(){
+			    $('#wrapper').slideDown("linear");
+				$('h2').slideDown(1200);
+			});
+			
+			$('#menu').click(function(){
+			    
+			    $('#overlaymenu').slideDown(400);
+				$('#wrapper').slideUp(100);
+				$('#exit').slideDown();
+				$('body').css('background-color','pink');
+				$('.menu-links').show();
+			});
+			
+			$('#exit').click(function(){
+			    $('body').css('background-color','transparent');
+			    $('#overlaymenu').slideUp();
+				$('#wrapper').slideDown(2500);
+				$(this).hide();
+				$('.menu-links').hide();
+			});
+		});
+	</script>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+	<div id="wrapper2">
+	<div style="width:100%; background-color:lightpink; height:500px;">
+    <div class="animateblock left">
+	  <div class="animateblock left">
+	      <h1 class="websitenames">Fashion Boutique</h1>
+		  <h5 class="websitetitles">E-commerce website | 2019</h5>
+	  </div>
+      <img id="img" style="padding-bottom:2%;" width="1000px" src="img/example.png">
+    </div>
+	</div>
+	
+	<div style="width:100%; background-color:lightpink; height:500px; margin-top:18%;">
+	<div class="animateblock left">
+	  <div class="animateblock left">
+	      <h1 class="websitenames">Saint Laurent</h1>
+		  <h5 class="websitetitles">E-commerce website | 2019</h5>
+	  </div>
+      <img id="img" style="padding-bottom:2%;" width="1000px" src="img/yslexample.png">
+    </div>
+	</div>
+    <br><br><br><br>
+	
+	
+    <br><br><br><br>
+    
+    <br><br><br><br>
+	
+	
+    <br><br><br><br>
+  </div>
+  </div>
+  <div id="overlaymenu">
+      <img id="exit" src="img/menu.png">
+	  <div id="links-holder">
+	      <a class="menu-links" href="index.html">Home</a>
+		  <a class="menu-links" href="about.html">About</a>
+		  <a class="menu-links" href="contact.html">Contact</a>
+	  </div>
+  </div>
+<script type="text/javascript">
+
+$(function(){
+  var $elems = $('.animateblock');
+  var winheight = $(window).height();
+  var fullheight = $(document).height();
+  
+  $(window).scroll(function(){
+    animate_elems();
+  });
+  
+  function animate_elems() {
+    wintop = $(window).scrollTop(); // calculate distance from top of window
+ 
+    // loop through each item to check when it animates
+    $elems.each(function(){
+      $elm = $(this);
+      
+      if($elm.hasClass('animated')) { return true; } // if already animated skip to the next item
+      
+      topcoords = $elm.offset().top; // element's distance from top of page in pixels
+      
+      if(wintop > (topcoords - (winheight*.75))) {
+        // animate when top of the window is 3/4 above the element
+        $elm.addClass('animated');
+      }
+    });
+  } // end animate_elems()
+});
+</script>
+</body>
+</html>
